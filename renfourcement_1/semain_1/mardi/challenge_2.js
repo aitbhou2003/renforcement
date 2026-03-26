@@ -49,8 +49,11 @@ ventes_mois.sort((a, b) => b.chiffre_affaires - a.chiffre_affaires)
 // 8
 
 
-for (let i = 1, j = 0; i < ventes.length; i++, j++) {
+for (let i = 1; i < ventes.length; i++) {
 
-    let croissance = ventes[i].chiffre_affaires - ventes[j].chiffre_affaires;
+    let croissance = ventes[i].chiffre_affaires - ventes[i - 1].chiffre_affaires;
+    if (croissance<0) {
+        croissance = croissance * -1
+    }
     console.log(croissance);
 }
